@@ -521,8 +521,8 @@ This section complements the main README by providing visual assets and pipeline
 
 Below is the high-level flow diagram of the Expense Reimbursement System:
 
-![System Flow Diagram]("C:\Users\Pawan\Downloads\ers1.jpg")
-![System Flow Diagram with connection]("C:\Users\Pawan\Downloads\ers2.jpg")
+![System Flow Diagram](docs/ers1.jpg)
+![System Flow Diagram with connection](docs/ers2.jpg)
 
 
 ---
@@ -606,14 +606,14 @@ pipeline {
 
 ##  Jenkins Pipeline
 
-![Image]("C:\Users\Pawan\Downloads\pipeline.jpg")
+![Jenkins Pipeline](docs/pipeline.jpg)
 
 ## 📈 SonarQube Reports
 
 Each service is analyzed with **SonarQube** for code quality, coverage, and security vulnerabilities.
 
-* **Auth Service Report:** ![Employee and Expense Service Sonar Report]("C:\Users\Pawan\Downloads\sonarqube1.jpg")
-* **Employee Service Report:** ![Auth Service Sonar Report]("C:\Users\Pawan\Downloads\sonar1.jpg")
+* **Auth Service Report:** ![Auth Service Sonar Report](docs/sonar1.jpg) 
+* **Employee Service Report:** ![Employee and Expense Service Sonar Report](docs/sonarqube1.jpg)
 
 
 ---
@@ -622,7 +622,7 @@ Each service is analyzed with **SonarQube** for code quality, coverage, and secu
 
 Frontend performance, accessibility, best practices, and SEO were measured using **Google Lighthouse**.
 
-* **Report Screenshot:** ![Lighthouse Report For Login Page]("C:\Users\Pawan\Downloads\lighthouse.jpg")
+* **Report Screenshot:** ![Lighthouse Report](docs/lighthouse.jpg)
 
 
 ---
@@ -631,7 +631,7 @@ Frontend performance, accessibility, best practices, and SEO were measured using
 
 A complete demo video showcasing login, employee claims, manager approvals, and admin role management.
 
-[▶️ Watch the Demo]("C:\Users\Pawan\Downloads\ERS video.mp4")
+[▶️ Watch the Demo](docs/demo.mp4)
 
 
 ---
