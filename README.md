@@ -16,7 +16,7 @@ Organizations need a secure, auditable, and scalable way for employees to submit
 
 ---
 
-## ✅ Solution Overview
+##  Solution Overview
 
 This project implements a **microservices architecture** where each service is independent and discoverable via **Eureka Server**. Authentication is handled using **JWT** with **Spring Security**, and **CORS** is configured to enable secure communication between frontend and backend.
 
@@ -31,7 +31,7 @@ This project implements a **microservices architecture** where each service is i
 ### High-Level Architecture
 
 ```
-[ React + Vite + TS ]  <—CORS—>  [ API Gateway (optional) ]
+[ React + Vite + TS ]  <—CORS—>  [CORS CONFIG]
                                   |            
                                   v            
                            [ Eureka Server ] (service registry)
@@ -39,7 +39,7 @@ This project implements a **microservices architecture** where each service is i
                              v       v       v
                       [Auth]   [Employee]  [Expense]
                          |          |          |
-                      Mongo/—   MongoDB    PostgreSQL
+                      PostgreSQL/—   PostgreSQL    PostgreSQL
 ```
 
 ---
