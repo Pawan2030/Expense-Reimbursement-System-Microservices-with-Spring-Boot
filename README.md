@@ -46,19 +46,28 @@ This project implements a **microservices architecture** where each service is i
 
 ## 🎯 Features
 
-### By Role
+Features by Role
 
-| Feature                             | Employee | Manager | Admin |
-| ----------------------------------- | -------: | ------: | ----: |
-| Register & Login (JWT)              |        ✅ |       ✅ |     ✅ |
-| Submit new claim                    |        ✅ |       ❌ |     ❌ |
-| View own claims & history           |        ✅ |       ❌ |     ❌ |
-| Delete own pending claim            |        ✅ |       ❌ |     ❌ |
-| View team’s pending claims          |        ❌ |       ✅ |     ❌ |
-| Approve/Reject employee claims      |        ❌ |       ✅ |     ❌ |
-| Create new employee under a manager |        ❌ |       ✅ |     ✅ |
-| Assign roles                        |        ❌ |       ❌ |     ✅ |
-| View all users                      |        ❌ |       ❌ |     ✅ |
+## Employee:
+
+1. Register & Login (JWT)
+2. Submit new claim
+3. View own claims & history
+4. Delete own pending claim
+
+## Manager:
+
+1. Register & Login (JWT)
+2. View team’s pending claims
+3. Approve/Reject employee claims
+4. Create new employee under a manager
+
+## Admin:
+
+1. Register & Login (JWT)
+2. Create new employee under a manager
+3. Assign roles
+4. View all users
 
 ### Platform-wide
 
@@ -633,38 +642,8 @@ A complete demo video showcasing login, employee claims, manager approvals, and 
 
 [▶️ Watch the Demo](docs/demo.mp4)
 
-
----
-
-## 📂 Suggested Docs Structure
-
-```
-docs/
-├─ images/
-│  └─ system-flow.png
-├─ reports/
-│  ├─ sonar-auth.png
-│  ├─ sonar-employee.png
-│  ├─ sonar-eureka.png
-│  ├─ sonar-expense.png
-│  └─ lighthouse.png
-└─ videos/
-   └─ demo.mp4
-
-
-
-
----
-
-## 🚀 Usage
-
-* Place this **Reports README** below the main `README.md`.
-* Update all screenshot/video links after generating artifacts.
-* Ensure SonarQube server is running locally on `http://localhost:9000`.
-
----
-
-**End of Reports & CI/CD Section**
+## 🎥 Google Drive Link
+https://drive.google.com/file/d/1Api2t0zEDmMjwY_dQuloaAccukkPN_UM/view?usp=drive_link
 
 
 ---
