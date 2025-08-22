@@ -640,7 +640,7 @@ Frontend performance, accessibility, best practices, and SEO were measured using
 
 A complete demo video showcasing login, employee claims, manager approvals, and admin role management.
 
-[▶️ Watch the Demo](docs/ERS Video.mp4)
+[▶️ Watch the Demo](docs/demo.mp4)
 
 ## 🎥 Google Drive Link
 https://drive.google.com/file/d/1Api2t0zEDmMjwY_dQuloaAccukkPN_UM/view?usp=drive_link
