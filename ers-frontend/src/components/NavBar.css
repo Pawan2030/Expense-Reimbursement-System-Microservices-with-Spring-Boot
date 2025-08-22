@@ -1,0 +1,68 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #1f2937, #111827); /* subtle gradient */
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* soft shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav .brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.nav .links {
+  display: flex;
+  align-items: center;
+}
+
+.nav .links a,
+.nav .links button {
+  margin-left: 16px;
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav .links a::after,
+.nav .links button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3b82f6; /* blue underline on hover */
+  transition: width 0.3s;
+}
+
+.nav .links a:hover::after,
+.nav .links button:hover::after {
+  width: 100%;
+}
+
+.nav .links a:hover,
+.nav .links button:hover {
+  color: #3b82f6; /* hover text color */
+  transform: translateY(-2px); /* subtle lift on hover */
+  background-color: rgba(59, 130, 246, 0.1); /* light hover bg */
+}
