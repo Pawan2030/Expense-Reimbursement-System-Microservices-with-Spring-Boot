@@ -509,6 +509,164 @@ services:
 * **OpenAPI/Swagger** docs per service
 * **E2E tests** and CI/CD
 
+
+
+# Reports & CI/CD Documentation
+
+This section complements the main README by providing visual assets and pipeline automation details.
+
+---
+
+## 📊 System Flow Diagram
+
+Below is the high-level flow diagram of the Expense Reimbursement System:
+
+![System Flow Diagram]("C:\Users\Pawan\Downloads\ers1.jpg")
+![System Flow Diagram with connection]("C:\Users\Pawan\Downloads\ers2.jpg")
+
+
+---
+
+## 🔄 Jenkins Pipeline (Local)
+
+The Jenkins pipeline automates build, test, and static code analysis for each microservice. Below is the full `Jenkinsfile`:
+
+```groovy
+pipeline {
+    agent any
+
+    tools {
+        maven 'MAVEN_HOME'   // must match Jenkins tool config
+    }
+
+    environment {
+        // Local paths for your 4 microservices
+        AUTH_SERVICE       = "C:\\Users\\pawanmehta\\SpringBoot\\ERS_MICROSERVICE\\auth-service"
+        EMPLOYEE_SERVICE   = "C:\\Users\\pawanmehta\\springBoot\\ERS_MICROSERVICE\\employee-service"
+        EUREKA_SERVICE     = "C:\\Users\\pawanmehta\\SpringBoot\\ERS_MICROSERVICE\\eureka-service"
+        EXPENSE_SERVICE    = "C:\\Users\\pawanmehta\\SpringBoot\\ERS_MICROSERVICE\\expense-service"
+
+        // SonarQube token
+        SONARQUBE_TOKEN = "squ_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+        // SonarQube project keys
+        AUTH_PROJECT_KEY     = "auth-service"
+        EMPLOYEE_PROJECT_KEY = "employee-service"
+        EUREKA_PROJECT_KEY   = "eureka-service"
+        EXPENSE_PROJECT_KEY  = "expense-service"
+
+        SONAR_HOST = "http://localhost:9000"
+    }
+
+    stages {
+        stage('Build & Test: Auth Service') {
+            steps {
+                dir("${AUTH_SERVICE}") {
+                    bat "mvn clean verify"
+                }
+            }
+            post {
+                always {
+                    junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
+                    jacoco execPattern: 'target/jacoco.exec', classPattern: 'target/classes', sourcePattern: 'src/main/java'
+                }
+            }
+        }
+
+        stage('SonarQube: Auth Service') {
+            steps {
+                dir("${AUTH_SERVICE}") {
+                    bat """
+                        mvn sonar:sonar ^
+                        -Dsonar.projectKey=${AUTH_PROJECT_KEY} ^
+                        -Dsonar.login=${SONARQUBE_TOKEN} ^
+                        -Dsonar.host.url=${SONAR_HOST} ^
+                        -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                    """
+                }
+            }
+        }
+
+        // Repeat stages for Employee, Eureka, Expense services (Build, Test, Sonar)
+
+    }
+
+    post {
+        success {
+            echo 'All microservices built, tested, and analyzed successfully.'
+        }
+        failure {
+            echo 'Build or SonarQube analysis failed.'
+        }
+    }
+}
+```
+
+---
+
+##  Jenkins Pipeline
+
+![Image]("C:\Users\Pawan\Downloads\pipeline.jpg")
+
+## 📈 SonarQube Reports
+
+Each service is analyzed with **SonarQube** for code quality, coverage, and security vulnerabilities.
+
+* **Auth Service Report:** ![Employee and Expense Service Sonar Report]("C:\Users\Pawan\Downloads\sonarqube1.jpg")
+* **Employee Service Report:** ![Auth Service Sonar Report]("C:\Users\Pawan\Downloads\sonar1.jpg")
+
+
+---
+
+## 🌐 Lighthouse Report (Frontend)
+
+Frontend performance, accessibility, best practices, and SEO were measured using **Google Lighthouse**.
+
+* **Report Screenshot:** ![Lighthouse Report For Login Page]("C:\Users\Pawan\Downloads\lighthouse.jpg")
+
+
+---
+
+## 🎥 Application Demo Video
+
+A complete demo video showcasing login, employee claims, manager approvals, and admin role management.
+
+[▶️ Watch the Demo]("C:\Users\Pawan\Downloads\ERS video.mp4")
+
+
+---
+
+## 📂 Suggested Docs Structure
+
+```
+docs/
+├─ images/
+│  └─ system-flow.png
+├─ reports/
+│  ├─ sonar-auth.png
+│  ├─ sonar-employee.png
+│  ├─ sonar-eureka.png
+│  ├─ sonar-expense.png
+│  └─ lighthouse.png
+└─ videos/
+   └─ demo.mp4
+
+
+
+
+---
+
+## 🚀 Usage
+
+* Place this **Reports README** below the main `README.md`.
+* Update all screenshot/video links after generating artifacts.
+* Ensure SonarQube server is running locally on `http://localhost:9000`.
+
+---
+
+**End of Reports & CI/CD Section**
+
+
 ---
 
 ## 📜 License
